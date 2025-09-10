@@ -18,7 +18,9 @@ export default function HomePage() {
       </section>
       <AboutSection />
       <QuickLinks />
-      <SchoolCalendar />
+      <section id="calendar">
+        <SchoolCalendar />
+      </section>
       <section id="curriculum">
         <Curriculum />
       </section>

@@ -1,9 +1,9 @@
 // src/components/SchoolCalendar.js
 export default function SchoolCalendar() {
     return (
-      <section className="py-16 bg-white">
+      <section className="pt-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl text-black font-bold text-center mb-8">School Calendar</h2>
+          <h2 className="text-4xl text-black font-bold text-center mb-8">School Calendar</h2>
           <div className="bg-white rounded-lg">
           <div className="relative w-full mx-auto bg-white rounded-lg  overflow-hidden 
                 md:mx-[10px] md:rounded-md 

@@ -20,14 +20,14 @@ export default function TuitionFees() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">
           Tuition Fees
         </h2>
         
         {/* Academic Year Header */}
         <div className="text-center mb-8">
           <h3 className="text-2xl font-bold text-black mb-4">
-            2025-26 TUITION FEES
+            2025-26 Session
           </h3>
           <p className="text-gray-600 text-lg">
             Tuition fees can be paid in full or in installments
@@ -44,7 +44,7 @@ export default function TuitionFees() {
             {/* Plan A */}
             <div className="bg-[#fafafa] p-6 rounded-lg border-l-4 border-[#e2e2e2]">
               <h5 className="text-lg font-bold text-black mb-3">Plan A</h5>
-              <p className="text-gray-700">
+              <p className="text-gray-900 text-lg">
                 Pay everything at the time of registration
               </p>
             </div>
@@ -53,7 +53,7 @@ export default function TuitionFees() {
             <div className="bg-[#fafafa] p-6 rounded-lg border-l-4 border-[#e2e2e2]">
               <h5 className="text-lg font-bold text-black mb-3">Plan B</h5>
               <p className="text-gray-700 font-medium">
-                Pay half + <span className="font-semibold text-black">$35 (Admin fees)</span> at the time of registration and the other half before the second semester starts.
+                Pay half + <span className="font-semibold text-black text-lg">$35 (Admin fees)</span> at the time of registration and the other half before the second semester starts.
               </p>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function TuitionFees() {
                 <thead>
                   <tr className="border-b-2 border-gray-200">
                     <th className="text-left py-4 px-4 font-bold text-gray-800 text-lg">
-                      Family Size
+                      Number of Students
                     </th>
                     <th className="text-right py-4 px-4 font-bold text-gray-800 text-lg">
                       Monthly Tuition

@@ -30,6 +30,13 @@ export default function Navigation() {
   // Handle smooth scrolling to sections
   const handleNavClick = (e, item) => {
     e.preventDefault()
+    
+    // Check if it's the Registration link - open external URL
+    if (item === 'Registration') {
+      window.open('https://secure-api.net/school/registration/demo-mosque', '_blank', 'noopener,noreferrer')
+      return
+    }
+    
     const sectionId = getSectionId(item)
     const element = document.getElementById(sectionId)
     if (element) {
@@ -40,12 +47,23 @@ export default function Navigation() {
     }
   }
 
+  // Handle logo click - scroll to top
+  const handleLogoClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo and School Name */}
-          <div className="flex items-center space-x-3">
+          <button 
+            onClick={handleLogoClick}
+            className="flex items-center space-x-3 transition-opacity duration-200 cursor-pointer"
+          >
             <Image 
               src={data.logo} 
               alt={data.schoolName}
@@ -56,10 +74,10 @@ export default function Navigation() {
             <h1 className="text-xl font-bold text-blue-900">
               {data.schoolName}
             </h1>
-          </div>
+          </button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 text-md text-black font-bold">
             {data.menuItems?.map((item, index) => {
               // Check if this is the last item (Donate)
               const isLastItem = index === data.menuItems.length - 1
@@ -69,6 +87,7 @@ export default function Navigation() {
                 return (
                   <button
                     key={index}
+                    onClick={() => window.open('https://secure-api.net/give/v7/demo-mosque', '_blank', 'noopener,noreferrer')}
                     className="bg-[#2A5BBE] cursor-pointer text-white px-8 py-2 rounded-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#244ea6] transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
                     {item}
                   </button>
@@ -79,7 +98,7 @@ export default function Navigation() {
                   <button
                     key={index}
                     onClick={(e) => handleNavClick(e, item)}
-                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
+                    className="text-black hover:text-blue-600 font-bold transition-colors duration-200 cursor-pointer"
                   >
                     {item}
                   </button>

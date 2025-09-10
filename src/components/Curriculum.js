@@ -53,18 +53,18 @@ export default function Curriculum() {
   const [activeTab, setActiveTab] = useState('islamic')
 
   return (
-    <section className="py-16 bg-[#fbfbfb]">
+    <section className="pb-16 bg-[#fff]">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">
           Our Curriculum
         </h2>
         
         {/* Tab Navigation */}
         <div className="flex justify-center mb-8">
-          <div className="bg-white rounded-lg p-1 shadow-md">
+          <div className="bg-white rounded-lg p-1 shadow-md cursor-pointer">
             <button
               onClick={() => setActiveTab('islamic')}
-              className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 ${
+              className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 cursor-pointer ${
                 activeTab === 'islamic'
                   ? 'bg-[#2F497E] text-white shadow-md'
                   : 'text-gray-600 hover:text-[#2F497E]'
@@ -74,7 +74,7 @@ export default function Curriculum() {
             </button>
             <button
               onClick={() => setActiveTab('quranic')}
-              className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 ${
+              className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 cursor-pointer ${
                 activeTab === 'quranic'
                   ? 'bg-[#2F497E] text-white shadow-md'
                   : 'text-gray-600 hover:text-[#2F497E]'

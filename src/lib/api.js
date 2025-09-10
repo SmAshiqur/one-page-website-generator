@@ -97,7 +97,7 @@ export const staticFallbacks = {
         title: 'SCHOOL REGISTRATION NOW OPEN',
         subtitle: '2025-2026 REGISTRATION ARE OPEN NOW FOR ALL CLASSES!',
         buttonText: 'REGISTER NOW',
-        buttonLink: '#registration',
+        buttonLink: 'https://secure-api.net/school/registration/demo-mosque',
         backgroundImage: '/images/placeholders/Slide-1.jpg'
       },
       {
