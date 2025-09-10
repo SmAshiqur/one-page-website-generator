@@ -1,3 +1,4 @@
+'use client'
 export default function TuitionFees() {
   const tuitionRates = [
     {
@@ -118,7 +119,10 @@ export default function TuitionFees() {
           </div>
           
           <div className="space-x-4">
-            <button className="bg-[#2A5BBE] cursor-pointer text-white px-12 py-3 rounded-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#244ea6] transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+            <button 
+              onClick={() => window.open('https://secure-api.net/school/registration/demo-mosque', '_blank', 'noopener,noreferrer')}
+              className="bg-[#2A5BBE] cursor-pointer text-white px-12 py-3 rounded-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#244ea6] transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+            >
               REGISTER NOW
             </button>
             <button className="mt-7 cursor-pointer border-2 border-[#2A5BBE] text-[#2A5BBE] px-12 py-3 rounded-md font-semibold transition-all duration-300 ease-in-out hover:bg-[#2A5BBE] hover:text-white hover:shadow-md transform hover:-translate-y-1 hover:scale-105">

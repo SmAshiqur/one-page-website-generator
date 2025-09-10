@@ -71,7 +71,7 @@ export default function QuickLinks() {
             <div 
               key={index} 
               onClick={() => handleLinkClick(link)}
-              className="bg-white border-[#A6A6A6] border-1 p-6 rounded-sm text-center hover:shadow-md transition-all duration-300 cursor-pointer hover:scale-105"
+              className="bg-white border-[#EEEEEE] border-1 p-6 rounded-sm text-center hover:shadow-md transition-all duration-300 cursor-pointer hover:scale-105"
             >
               {link.icon}
               <h3 className="font-semibold text-black">{link.name}</h3>

@@ -68,7 +68,7 @@ export default function HeroSlider() {
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
         <div className="container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 max-w-4xl mx-auto leading-tight">
             {currentSlideData.title}
           </h1>
           <p className="text-xl md:text-2xl font-semibold mb-8 max-w-3xl mx-auto">
