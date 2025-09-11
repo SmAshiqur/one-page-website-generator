@@ -103,15 +103,15 @@ export const staticFallbacks = {
       {
         title: 'EXCELLENCE IN EDUCATION',
         subtitle: 'Preparing students for success in a changing world',
-        buttonText: 'LEARN MORE',
-        buttonLink: '#about',
+        buttonText: 'REGISTER NOW',
+        buttonLink: 'https://secure-api.net/school/registration/demo-mosque',
         backgroundImage: '/images/placeholders/Slide-1.jpg'
       },
       {
         title: 'JOIN OUR COMMUNITY',
         subtitle: 'Be part of a supportive learning environment',
-        buttonText: 'APPLY TODAY',
-        buttonLink: '#contact',
+        buttonText: 'REGISTER NOW',
+        buttonLink: 'https://secure-api.net/school/registration/demo-mosque',
         backgroundImage: '/images/placeholders/Slide-1.jpg'
       }
     ]
