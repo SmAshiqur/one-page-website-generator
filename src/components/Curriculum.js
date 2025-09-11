@@ -55,7 +55,7 @@ export default function Curriculum() {
   return (
     <section className="pb-16 bg-[#fff]">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 pt-36 sm:pt-0">
           Our Curriculum
         </h2>
         
