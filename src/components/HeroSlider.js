@@ -49,6 +49,21 @@ export default function HeroSlider() {
   // Debug: Log the current slide data
   console.log('Current slide data:', currentSlideData)
 
+    // Handle smooth scrolling to sections
+    const handleNavClick = (e, item) => {
+      e.preventDefault()
+      
+   
+      const sectionId = getSectionId(item)
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }
+
   return (
     <section className="relative h-[600px] max-sm:aspect-video max-sm:h-auto overflow-hidden">
       {/* Background Image */}

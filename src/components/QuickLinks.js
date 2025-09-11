@@ -49,7 +49,7 @@ export default function QuickLinks() {
   const handleLinkClick = (link) => {
     if (link.isExternal) {
       // Open external link in new tab
-      window.open(link.url, '_blank', 'noopener,noreferrer')
+      window.location.href = link.url
     } else {
       // Scroll to internal section
       const element = document.getElementById(link.url.replace('#', ''))

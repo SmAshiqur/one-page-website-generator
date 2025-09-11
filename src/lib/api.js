@@ -89,7 +89,7 @@ export const staticFallbacks = {
   navigation: {
     logo: '/images/placeholders/Demo-School-Logo.png',
     // schoolName: 'Demo School',
-    menuItems: ['Home', 'Academic', 'Registration', 'Tuition', 'Contact', 'Donate']
+    menuItems: ['Home', 'Academic', 'Calendar', 'Registration', 'Tuition', 'Contact', 'Donate']
   },
   hero: {
     slides: [
@@ -97,21 +97,21 @@ export const staticFallbacks = {
         title: 'SCHOOL REGISTRATION NOW OPEN',
         subtitle: '2025-2026 REGISTRATION ARE OPEN NOW FOR ALL CLASSES!',
         buttonText: 'REGISTER NOW',
-        buttonLink: 'https://secure-api.net/school/registration/demo-mosque',
+        buttonLink: '#registration',
         backgroundImage: '/images/placeholders/Slide-1.jpg'
       },
       {
         title: 'EXCELLENCE IN EDUCATION',
         subtitle: 'Preparing students for success in a changing world',
         buttonText: 'REGISTER NOW',
-        buttonLink: 'https://secure-api.net/school/registration/demo-mosque',
+        buttonLink: '#registration',
         backgroundImage: '/images/placeholders/Slide-1.jpg'
       },
       {
         title: 'JOIN OUR COMMUNITY',
         subtitle: 'Be part of a supportive learning environment',
         buttonText: 'REGISTER NOW',
-        buttonLink: 'https://secure-api.net/school/registration/demo-mosque',
+        buttonLink: '#registration',
         backgroundImage: '/images/placeholders/Slide-1.jpg'
       }
     ]

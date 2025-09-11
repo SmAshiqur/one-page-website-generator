@@ -20,6 +20,7 @@ export default function Navigation() {
     const sectionMap = {
       'Home': 'home',
       'Academic': 'curriculum',
+      'Calendar': 'calendar',
       'Registration': 'registration',
       'Tuition': 'tuition',
       'Contact': 'contact',
@@ -32,12 +33,7 @@ export default function Navigation() {
   const handleNavClick = (e, item) => {
     e.preventDefault()
     
-    // Check if it's the Registration link - open external URL
-    if (item === 'Registration') {
-      window.open('https://secure-api.net/school/registration/demo-mosque', '_blank', 'noopener,noreferrer')
-      return
-    }
-    
+ 
     const sectionId = getSectionId(item)
     const element = document.getElementById(sectionId)
     if (element) {
@@ -93,7 +89,7 @@ export default function Navigation() {
                 return (
                   <button
                     key={index}
-                    onClick={() => window.open('https://secure-api.net/give/v7/demo-mosque', '_blank', 'noopener,noreferrer')}
+                    onClick={() => window.location.href = 'https://secure-api.net/give/v7/demo-mosque'}
                     className="bg-[#2A5BBE] cursor-pointer text-white px-8 py-2 rounded-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#244ea6] transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
                     {item}
                   </button>

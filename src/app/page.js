@@ -2,10 +2,12 @@ import TopHeader from '../components/TopHeader'
 import Navigation from '../components/Navigation'
 import HeroSlider from '../components/HeroSlider'
 import AboutSection from '../components/AboutSection'
+import RegistrationSection from '../components/RegistrationSection'
 import QuickLinks from '../components/QuickLinks'
 import SchoolCalendar from '../components/SchoolCalendar'
 import Curriculum from '../components/Curriculum'
 import TuitionFees from '../components/TuitionFees'
+import ContactUs from '../components/ContactUs'
 import Footer from '../components/Footer'
 
 export default function HomePage() {
@@ -17,6 +19,9 @@ export default function HomePage() {
         <HeroSlider />
       </section>
       <AboutSection />
+      <section id="registration">
+        <RegistrationSection />
+      </section>
       <QuickLinks />
       <section id="calendar">
         <SchoolCalendar />
@@ -28,6 +33,7 @@ export default function HomePage() {
         <TuitionFees />
       </section>
       <section id="contact">
+      <ContactUs />
         <Footer />
       </section>
     </main>

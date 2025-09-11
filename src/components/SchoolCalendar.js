@@ -1,7 +1,7 @@
 // src/components/SchoolCalendar.js
 export default function SchoolCalendar() {
     return (
-      <section className="pt-16 bg-white">
+      <section id="calendar" className="pt-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl text-black font-bold text-center mb-8">School Calendar</h2>
           <div className="bg-white rounded-lg">
