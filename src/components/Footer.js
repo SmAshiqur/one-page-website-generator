@@ -107,7 +107,7 @@ export default function Footer() {
             <p className="flex items-center gap-1">
               Powered by 
               <a 
-                href="#" 
+                href="https://masjidsolutions.net/" 
                 className="text-slate-300 hover:text-white transition-colors ml-1"
               >
                 Masjidsolutions.net
