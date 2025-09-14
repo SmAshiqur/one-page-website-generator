@@ -2,7 +2,7 @@
 
 export default function RegistrationSection() {
     return (
-      <section id="registration" className="py-16 bg-white text-black">
+      <section id="registration" className="py-26 bg-white text-black">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center text-black">
             {/* Main Header */}
@@ -14,9 +14,8 @@ export default function RegistrationSection() {
             </div>
   
             {/* Registration Details */}
-            <div className="bg-[#fafafa] rounded-lg p-8 mb-8">
+            {/* <div className="bg-[#fafafa] rounded-lg p-8 mb-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Left Column - Grade & Schedule */}
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-bold mb-4 flex items-center justify-center md:justify-start">
                     <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -34,7 +33,6 @@ export default function RegistrationSection() {
                   </div>
                 </div>
   
-                {/* Right Column - Pre-K Requirements */}
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-bold mb-4 flex items-center justify-center md:justify-start">
                     <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -52,14 +50,14 @@ export default function RegistrationSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
   
             {/* Special Announcement */}
-            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg mb-6">
+            {/* <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg mb-6">
               <p className="text-gray-700 text-2xl">
                 <span className="font-semibold">NEW:</span> We are accepting Pre-K this year!
               </p>
-            </div>
+            </div> */}
   
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

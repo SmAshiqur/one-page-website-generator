@@ -14,7 +14,7 @@ export default function QuickLinks() {
       )
     },
     {
-      name: 'Tuition Payment',
+      name: 'Payment Plans',
       url: '#tuition',
       isExternal: false,
       icon: (

@@ -53,7 +53,7 @@ export default function Curriculum() {
   const [activeTab, setActiveTab] = useState('islamic')
 
   return (
-    <section className="pb-16 bg-[#fff]">
+    <section className="py-26 bg-[#fff]">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 pt-36 sm:pt-0">
           Our Curriculum
@@ -70,7 +70,7 @@ export default function Curriculum() {
                   : 'text-gray-600 hover:text-[#2F497E]'
               }`}
             >
-              Islamic Studies
+              Subject 1
             </button>
             <button
               onClick={() => setActiveTab('quranic')}
@@ -80,7 +80,7 @@ export default function Curriculum() {
                   : 'text-gray-600 hover:text-[#2F497E]'
               }`}
             >
-              Quranic School
+              Subject 2
             </button>
           </div>
         </div>
