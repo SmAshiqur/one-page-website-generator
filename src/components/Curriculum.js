@@ -1,5 +1,5 @@
-'use client'
 
+'use client'
 import { useState } from 'react'
 
 const islamicStudiesLevels = [
@@ -53,9 +53,9 @@ export default function Curriculum() {
   const [activeTab, setActiveTab] = useState('islamic')
 
   return (
-    <section className="py-26 bg-[#fff]">
+    <section id="curriculum" className="py-8 md:py-26 bg-[#fff]">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 pt-36 sm:pt-0">
+        <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">
           Our Curriculum
         </h2>
         
@@ -86,10 +86,9 @@ export default function Curriculum() {
         </div>
 
         {/* Tab Content */}
-        <div className="">
+        <div>
           {activeTab === 'islamic' && (
             <div>
-             
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {islamicStudiesLevels.map((level, index) => (
                   <div 
@@ -105,7 +104,6 @@ export default function Curriculum() {
 
           {activeTab === 'quranic' && (
             <div>
-            
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {quranicClasses.map((qclass, index) => (
                   <div 

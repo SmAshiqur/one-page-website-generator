@@ -1,11 +1,15 @@
+
 'use client'
 import { schoolApi, staticFallbacks } from '../lib/api'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function Navigation() {
   const [data, setData] = useState(staticFallbacks.navigation)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('Home')
+  const [isClickNavigating, setIsClickNavigating] = useState(false)
+  const navRef = useRef(null) // Ref for navigation bar
 
   useEffect(() => {
     async function fetchNavigationData() {
@@ -13,7 +17,52 @@ export default function Navigation() {
       setData(navData || staticFallbacks.navigation)
     }
     fetchNavigationData()
-  }, [])
+
+    // Handle scroll events with debounce
+    let scrollTimeout
+    const handleScroll = () => {
+      if (isClickNavigating) return // Skip scroll handling during click navigation
+
+      clearTimeout(scrollTimeout)
+      scrollTimeout = setTimeout(() => {
+        const sections = data.menuItems
+          .filter(item => item !== 'Donate')
+          .map(item => getSectionId(item))
+        
+        let currentSection = 'home'
+        let closestTop = Infinity
+
+        for (const sectionId of sections) {
+          const element = document.getElementById(sectionId)
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            const topDistance = Math.abs(rect.top)
+            if (rect.top <= window.innerHeight && rect.bottom >= 0 && topDistance < closestTop) {
+              currentSection = sectionId
+              closestTop = topDistance
+            }
+          }
+        }
+
+        // Map section ID back to menu item name
+        const sectionMap = {
+          home: 'Home',
+          curriculum: 'Academic',
+          calendar: 'Calendar',
+          registration: 'Registration',
+          tuition: 'Tuition',
+          contact: 'Contact'
+        }
+        setActiveSection(sectionMap[currentSection] || 'Home')
+      }, 150)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(scrollTimeout)
+    }
+  }, [data.menuItems, isClickNavigating])
 
   // Map menu items to their corresponding section IDs
   const getSectionId = (item) => {
@@ -32,24 +81,35 @@ export default function Navigation() {
   // Handle smooth scrolling to sections
   const handleNavClick = (e, item) => {
     e.preventDefault()
+    setIsClickNavigating(true)
+    setActiveSection(item)
     
- 
     const sectionId = getSectionId(item)
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      const navHeight = navRef.current?.offsetHeight || 0
+      const offset = window.innerWidth < 768 ? 80 : 104 // 80px for mobile, 104px (py-26) for desktop
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY
+      window.scrollTo({
+        top: elementPosition - navHeight - offset,
+        behavior: 'smooth'
       })
+      setTimeout(() => setIsClickNavigating(false), 1000)
     }
+    setIsMobileMenuOpen(false)
   }
 
   // Handle logo click - scroll to top
   const handleLogoClick = () => {
+    setIsClickNavigating(true)
+    setActiveSection('Home')
+    const navHeight = navRef.current?.offsetHeight || 0
+    const offset = window.innerWidth < 768 ? 80 : 104
     window.scrollTo({
-      top: 0,
+      top: 0 - navHeight - offset,
       behavior: 'smooth'
     })
+    setTimeout(() => setIsClickNavigating(false), 1000)
   }
 
   // Toggle mobile menu
@@ -58,7 +118,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav ref={navRef} className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo and School Name */}
@@ -81,26 +141,26 @@ export default function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 text-md text-black font-bold">
             {data.menuItems?.map((item, index) => {
-              // Check if this is the last item (Donate)
               const isLastItem = index === data.menuItems.length - 1
               
               if (isLastItem) {
-                // Render Donate as a button
                 return (
                   <button
                     key={index}
                     onClick={() => window.location.href = 'https://secure-api.net/give/v7/demo-mosque'}
-                    className="bg-[#2A5BBE] cursor-pointer text-white px-8 py-2 rounded-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#244ea6] transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                    className="bg-[#2A5BBE] cursor-pointer text-white px-8 py-2 rounded-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#244ea6] transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                  >
                     {item}
                   </button>
                 )
               } else {
-                // Render other items as regular links
                 return (
                   <button
                     key={index}
                     onClick={(e) => handleNavClick(e, item)}
-                    className="text-black hover:text-blue-600 font-bold transition-colors duration-200 cursor-pointer"
+                    className={`text-black hover:text-blue-600 font-bold transition-colors duration-200 cursor-pointer border-2 rounded-sm px-2 py-1 ${
+                      activeSection === item ? 'border-blue-600 text-blue-600' : 'border-transparent'
+                    }`}
                   >
                     {item}
                   </button>
@@ -132,13 +192,11 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
             <div className="px-4 py-4 space-y-3">
-              {/* Regular Menu Items */}
               {data.menuItems?.map((item, index) => {
                 const isRegistration = item === 'Registration'
                 const isDonation = item === 'Donate'
                 
                 if (isRegistration) {
-                  // Highlighted Registration button
                   return (
                     <button
                       key={index}
@@ -152,7 +210,6 @@ export default function Navigation() {
                     </button>
                   )
                 } else if (isDonation) {
-                  // Highlighted Donation button
                   return (
                     <button
                       key={index}
@@ -166,15 +223,13 @@ export default function Navigation() {
                     </button>
                   )
                 } else {
-                  // Regular menu items
                   return (
                     <button
                       key={index}
-                      onClick={(e) => {
-                        handleNavClick(e, item)
-                        setIsMobileMenuOpen(false)
-                      }}
-                      className="w-full text-left text-black hover:text-blue-600 font-bold transition-colors duration-200 py-2"
+                      onClick={(e) => handleNavClick(e, item)}
+                      className={`w-full text-left text-black hover:text-blue-600 font-bold transition-colors duration-200 py-2 border-2 rounded-sm px-2 ${
+                        activeSection === item ? 'border-blue-600 text-blue-600' : 'border-transparent'
+                      }`}
                     >
                       {item}
                     </button>
@@ -182,7 +237,6 @@ export default function Navigation() {
                 }
               })}
               
-              {/* Login Button */}
               <div className="pt-3 border-t border-gray-200">
                 <a 
                   href="https://secure-api.net/demo-mosque" 
